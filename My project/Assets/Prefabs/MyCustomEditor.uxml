@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/testStyle.uss?fileID=7433441132597879392&amp;guid=f3e69d64d139ec242a2a79fe8f1931bc&amp;type=3#testStyle" />
+    <ui:VisualElement name="ButtonContainer" class="container">
+        <ui:Label text="Label" display-tooltip-when-elided="true" class="lable" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" class="button" />
+    </ui:VisualElement>
+    <ui:VisualElement name="TextFirldContainer" class="container">
+        <ui:Label text="Label" display-tooltip-when-elided="true" class="lable" />
+        <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" />
+    </ui:VisualElement>
+    <ui:VisualElement name="RadioButtonContainer" class="container">
+        <ui:Label text="Label" display-tooltip-when-elided="true" class="lable" />
+        <ui:RadioButton label="Radio Button" />
+    </ui:VisualElement>
+</ui:UXML>
