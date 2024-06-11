@@ -34,7 +34,8 @@ public class ReyCast_ : MonoBehaviour
 
     [SerializeField] private LayerMask _targetLayerMask;
     private bool grabed = false;
-
+    private int n = 0;
+    RaycastHit hit;
     void Update()
     {
         Vector3 vec = transform.forward;
@@ -42,7 +43,7 @@ public class ReyCast_ : MonoBehaviour
         /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);*/
         Debug.DrawRay(transform.position, vec * 100, Color.yellow);
 
-        RaycastHit hit;
+        
         if (Physics.Raycast(ray, out hit,100f,_targetLayerMask))
         {
             Pointer.position = hit.point;
@@ -54,6 +55,7 @@ public class ReyCast_ : MonoBehaviour
                 grabed = true;
                 target = hit.collider.gameObject;
                 hit.transform.parent = gameObject.transform;
+                Debug.Log(++n);
             }
 
             
@@ -64,11 +66,8 @@ public class ReyCast_ : MonoBehaviour
             grabed = false;
             target.transform.parent = null;
         }
-        if (grabed & hit.collider.gameObject.GetComponent<Selectable>())
-        {
-            hit.transform.localPosition = hit.transform.localPosition + new Vector3(0, 0, klickMoveForward.axis.y * 0.1f);
-        }
-        
+
+
         if (klickCloseArm.stateDown)
         {
             //armLeft.transform.GetLocalPositionAndRotation(out posArmLeft, out orintArmLeft);
@@ -102,8 +101,15 @@ public class ReyCast_ : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+        if (grabed & hit.collider.gameObject.GetComponent<Selectable>())
+        {
 
+            //hit.transform.Translate(new Vector3(0, 0, klickMoveForward.axis.y * 10f) * Time.deltaTime);
+            hit.transform.localPosition = hit.transform.localPosition + new Vector3(0, 0, klickMoveForward.axis.y * 0.1f);
+
+        }
     }
+
 }

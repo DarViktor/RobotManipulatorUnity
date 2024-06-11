@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4907664035703851473}
   - component: {fileID: 4907664035703851486}
   - component: {fileID: 1304254396740277741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CubeStend
   m_TagString: Cube
   m_Icon: {fileID: 0}
@@ -133,3 +133,7 @@ MonoBehaviour:
   klickOpenArm:
     actionPath: /actions/default/in/OpenArm
     needsReinit: 0
+  armLeft: {fileID: 0}
+  armRight: {fileID: 0}
+  arm: {fileID: 0}
+  armCast: {fileID: 0}

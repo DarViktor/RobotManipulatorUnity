@@ -390,6 +390,7 @@
 "Assets/Scripts/RobotJoint.cs"
 "Assets/Scripts/Selectable.cs"
 "Assets/Scripts/TargetKinematic.cs"
+"Assets/Scripts/TargetKinematic1.cs"
 "Assets/XRPlatformControllerSetup.cs"
 -langversion:9.0
 

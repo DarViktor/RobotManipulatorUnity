@@ -131,9 +131,9 @@ public class TargetKinematic : MonoBehaviour
         float rotationWeight = 0.8f;
         float torsionWeight = 0;
         return
-            NormalisedDistance(target, angles) * distanceWeight /*+
+            NormalisedDistance(target, angles) * distanceWeight +
             NormalisedRotation(target, angles) * rotationWeight +
-            NormalisedTorsion(target, angles) * torsionWeight*/;
+            NormalisedTorsion(target, angles) * torsionWeight;
     }
 
 
