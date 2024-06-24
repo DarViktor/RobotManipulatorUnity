@@ -69,7 +69,6 @@ public class TargetKinematic : MonoBehaviour
         Quaternion rotation = Quaternion.identity;
         for (int i = 1; i < Joints.Length; i++)
         {
-            // Rotates around a new axis
             rotation *= Quaternion.AngleAxis(angles[i - 1], Joints[i - 1].Axis);
             Vector3 nextPoint = prevPoint + rotation * Joints[i].StartOffset;
           //  Vector3 nextRotation = prevRotation + rotation;
@@ -83,7 +82,6 @@ public class TargetKinematic : MonoBehaviour
         Quaternion rotation = Quaternion.identity;
         for (int i = 1; i < Joints.Length; i++)
         {
-            // Rotates around a new axis
             rotation *= Quaternion.AngleAxis(angles[i - 1], Joints[i - 1].Axis);          
         }
         //Debug.Log(rotation.eulerAngles);
@@ -140,8 +138,7 @@ public class TargetKinematic : MonoBehaviour
 
     public float PartialGradient(Vector3 target, float[] angles, int i)
     {
-        // Saves the angle,
-        // it will be restored later
+
         float angle = angles[i];
         // Gradient : [F(x+SamplingDistance) - F(x)] / h
         float f_x = ErrorFunction(target, angles);
@@ -149,7 +146,7 @@ public class TargetKinematic : MonoBehaviour
         //if (i == 5) Debug.Log(angles[i]);
         float f_x_plus_d = ErrorFunction(target, angles);
         float gradient = (f_x_plus_d - f_x) / SamplingDistance;
-        // Restores
+
         angles[i] = angle;
         return gradient;
     }
@@ -160,29 +157,24 @@ public class TargetKinematic : MonoBehaviour
             return;
         for (int i = Joints.Length-1; i >= 0; i--)
         {
-            // Gradient descent
-            // Update : Solution -= LearningRate * Gradient
+
             float gradient = PartialGradient(target, angles, i);
             angles[i] -= LearningRate * gradient;
             //if (i == 5) Debug.Log(gradient);
-            // Clamp
+
             angles[i] = Mathf.Clamp(angles[i], Joints[i].MinAngle, Joints[i].MaxAngle);
-            // Early termination
             if (ErrorFunction(target, angles) < DistanceThreshold)
                 return;
         }
     }
     /*public float PartialGradient(Vector3 target, float[] angles, int i)
     {
-        // Saves the angle,
-        // it will be restored later
+
         float angle = angles[i];
-        // Gradient : [F(x+SamplingDistance) - F(x)] / h
         float f_x = DistanceFromTarget(target, angles);
         angles[i] += SamplingDistance;
         float f_x_plus_d = DistanceFromTarget(target, angles);
         float gradient = (f_x_plus_d - f_x) / SamplingDistance;
-        // Restores
         angles[i] = angle;
         return gradient;
     }
@@ -193,14 +185,10 @@ public class TargetKinematic : MonoBehaviour
             return;
         for (int i = Joints.Length - 1; i >= 0; i--)
         {
-            // Gradient descent
-            // Update : Solution -= LearningRate * Gradient
             float gradient = PartialGradient(target, angles, i);
             angles[i] -= LearningRate * gradient;
 
-            // Clamp
             angles[i] = Mathf.Clamp(angles[i], Joints[i].MinAngle, Joints[i].MaxAngle);
-            // Early termination
             if (DistanceFromTarget(target, angles) < DistanceThreshold)
                 return;
         }
