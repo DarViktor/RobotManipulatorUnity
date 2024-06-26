@@ -385,6 +385,7 @@
 "Assets/Scripts/CameraKinematic.cs"
 "Assets/Scripts/CameraMove.cs"
 "Assets/Scripts/ColisionDetector.cs"
+"Assets/Scripts/CSVWriter.cs"
 "Assets/Scripts/Joint.cs"
 "Assets/Scripts/ReyCast_.cs"
 "Assets/Scripts/RobotJoint.cs"

@@ -2586,6 +2586,7 @@ GameObject:
   - component: {fileID: 245333934}
   - component: {fileID: 245333933}
   - component: {fileID: 245333932}
+  - component: {fileID: 245333936}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Flore
@@ -2671,6 +2672,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245333936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245333931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b60aa424021b2c44b91db3604d1a605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arm1: {fileID: 1179645215}
+  target1: {fileID: 1189109917}
+  arm2: {fileID: 4989019313258368435}
+  camera: {fileID: 31999512}
 --- !u!1001 &253795939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5048,6 +5065,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c28240f1e385f4f96aba2331df72b1, type: 3}
+--- !u!4 &1179645215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4989019312700888443, guid: a9c2c295c0dcc5a4282143fed6b895dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4989019312696587969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1189109917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445862654767950422, guid: 5ada42b4876b94f46ab24f6030c712b0,
